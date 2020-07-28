@@ -2,7 +2,8 @@ import java.util.Random;
 
 public class MainClass {
     public static void main(String[] args){
-        for (Figure figure: generate(10)) {
+        int amountOfFigures = 10;
+        for (Figure figure: generate(amountOfFigures)) {
             System.out.println(figure.output());
         }
     }
