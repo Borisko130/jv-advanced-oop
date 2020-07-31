@@ -1,24 +1,27 @@
-public class Triangle extends Figure{
-    double[] catets = new double[2];
+public class Triangle extends Figure {
+    private double sideOne;
+    private double sideTwo;
+    private double sideThree;
 
-    Triangle(Color color, double[] catets) {
-        this.name = "Triangle";
-        this.color = color;
-        this.catets = catets;
-        this.area = getAreaOfTriangle(catets);
+    Triangle(Color color, double sideOne, double sideTwo, double sideThree) {
+        super("Triangle", color);
+        this.sideOne = sideOne;
+        this.area = getAreaOfTriangle(sideOne, sideTwo, sideThree);
     }
 
-    public double getHypotenuse(){
-        return Math.sqrt(Math.pow(catets[0],2)+Math.pow(catets[1],2));
+    public double getLongestSide() {
+        return Math.max(Math.max(sideOne, sideTwo), Math.max(sideTwo, sideThree));
     }
 
-    private double getAreaOfTriangle(double[] catets){
-        return (catets[0] * catets[1])/2;
+    private double getAreaOfTriangle(double sideOne, double sideTwo, double sideThree) {
+        double halfPerimeter = (sideOne + sideTwo + sideThree) / 2;
+        return Math.sqrt(halfPerimeter * (halfPerimeter - sideOne)
+        * (halfPerimeter - sideTwo) * (halfPerimeter - sideThree));
     }
 
-    public String output(){
-        return "This is "+ name + ". It has area of "
+    public String draw() {
+        return "This is " + name + ". It has area of "
                 + area + " and it is " + color
-                + ". Its hypotenuse is " + getHypotenuse();
+                + ". Its longest side is " + getLongestSide();
     }
 }

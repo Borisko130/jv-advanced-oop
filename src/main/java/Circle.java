@@ -1,23 +1,22 @@
-public class Circle extends Figure{
+public class Circle extends Figure {
     private double radius;
 
-    Circle(Color color, double radius) {
-        this.name = "Circle";
-        this.color = color;
+    public Circle(Color color, double radius) {
+        super("Circle", color);
         this.radius = radius;
         this.area = getAreaOfCircle(radius);
     }
 
-    private double getAreaOfCircle(double radius){
+    private double getAreaOfCircle(double radius) {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    public double getRadius(){
+    public double getRadius() {
         return radius;
     }
 
-    public String output(){
-        return "This is "+ name + ". It has area of "
+    public String draw() {
+        return "This is " + name + ". It has area of "
                 + area + " and it is " + color
                 + ". Also its radius is " + radius;
     }
