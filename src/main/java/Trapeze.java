@@ -3,12 +3,12 @@ public class Trapeze extends Figure {
     private double lowerBase;
     private double upperBase;
 
-    Trapeze(Color color, double height, double lowerBase, double upperBase) {
+    public Trapeze(Color color, double height, double lowerBase, double upperBase) {
         super("Trapeze", color);
+        super.setArea(getAreaOfTrapeze(height, lowerBase, upperBase));
         this.height = height;
         this.lowerBase = lowerBase;
         this.upperBase = upperBase;
-        this.area = getAreaOfTrapeze(height, lowerBase, upperBase);
     }
 
     private double getAreaOfTrapeze(double height, double lowerBase, double upperBase) {
@@ -28,8 +28,8 @@ public class Trapeze extends Figure {
     }
 
     public String draw() {
-        return "This is " + name + ". It has area of "
-                + area + " and it is " + color
+        return "This is " + this.getName() + ". It has area of "
+                + this.getArea() + " and it is " + this.getColor()
                 + ". Its height is " + height;
     }
 }

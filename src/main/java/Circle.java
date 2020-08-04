@@ -3,8 +3,8 @@ public class Circle extends Figure {
 
     public Circle(Color color, double radius) {
         super("Circle", color);
+        super.setArea(getAreaOfCircle(radius));
         this.radius = radius;
-        this.area = getAreaOfCircle(radius);
     }
 
     private double getAreaOfCircle(double radius) {
@@ -16,8 +16,8 @@ public class Circle extends Figure {
     }
 
     public String draw() {
-        return "This is " + name + ". It has area of "
-                + area + " and it is " + color
+        return "This is " + this.getName() + ". It has area of "
+                + this.getArea() + " and it is " + this.getColor()
                 + ". Also its radius is " + radius;
     }
 }

@@ -3,10 +3,10 @@ public class Triangle extends Figure {
     private double sideTwo;
     private double sideThree;
 
-    Triangle(Color color, double sideOne, double sideTwo, double sideThree) {
+    public Triangle(Color color, double sideOne, double sideTwo, double sideThree) {
         super("Triangle", color);
+        super.setArea(getAreaOfTriangle(sideOne, sideTwo, sideThree));
         this.sideOne = sideOne;
-        this.area = getAreaOfTriangle(sideOne, sideTwo, sideThree);
     }
 
     public double getLongestSide() {
@@ -20,8 +20,8 @@ public class Triangle extends Figure {
     }
 
     public String draw() {
-        return "This is " + name + ". It has area of "
-                + area + " and it is " + color
+        return "This is " + this.getName() + ". It has area of "
+                + this.getArea() + " and it is " + this.getColor()
                 + ". Its longest side is " + getLongestSide();
     }
 }

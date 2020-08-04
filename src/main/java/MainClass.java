@@ -1,6 +1,9 @@
 import java.util.Random;
 
 public class MainClass {
+
+    private static int NUMBER_OF_SHAPES = 4;
+
     public static void main(String[] args){
         int amountOfFigures = 10;
         for (Figure figure: generate(amountOfFigures)) {
@@ -12,7 +15,7 @@ public class MainClass {
         Figure[] figures = new Figure[arraySize];
         Random random = new Random();
         for (int i = 0; i < arraySize; i++) {
-            switch ((int) ((Math.random() * (4 - 0)) + 0)) {
+            switch ((int) (Math.random() * NUMBER_OF_SHAPES)) {
                 case 0:
                     figures[i] = new Circle(pickColor(), 10 + (10 - 1) * random.nextDouble());
                     break;
@@ -36,7 +39,7 @@ public class MainClass {
 
     public static Color pickColor(){
         Random random = new Random();
-        Color[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.VIOLET};
+        Color[] colors = Color.values();
 
         return colors[random.nextInt(5)];
     }

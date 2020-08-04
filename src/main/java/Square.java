@@ -1,10 +1,10 @@
 public class Square extends Figure {
     private double side;
 
-    Square(Color color, double side) {
+    public Square(Color color, double side) {
         super("Square", color);
+        super.setArea(getAreaOfSquare(side));
         this.side = side;
-        this.area = getAreaOfSquare(side);
     }
 
     private double getAreaOfSquare(double side) {
@@ -16,8 +16,8 @@ public class Square extends Figure {
     }
 
     public String draw() {
-        return "This is " + name + ". It has area of "
-                + area + " and it is " + color
+        return "This is " + this.getName() + ". It has area of "
+                + this.getArea() + " and it is " + this.getColor()
                 + ". Size of its side is " + side;
     }
 }
